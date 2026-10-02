@@ -33,7 +33,6 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
-/* Une s1 y s2 y libera s1 (tanto si va bien como si falla malloc) */
 char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*res;
@@ -60,7 +59,6 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	return (res);
 }
 
-/* Copia hasta len caracteres de s desde start. NULL si no queda nada */
 char	*ft_extract(char *s, size_t start, size_t len)
 {
 	char	*res;
