@@ -25,7 +25,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-char	*get_next_line_bonus(int fd);
+char	*get_next_line(int fd);
 size_t	ft_strlen_bonus(char *s);
 char	*ft_strchr_bonus(char *s, int c);
 char	*ft_strjoin_free_bonus(char *s1, char *s2);

@@ -6,12 +6,12 @@
 /*   By: jocorral <jocorral@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 20:00:00 by jocorral          #+#    #+#             */
-/*   Updated: 2026/10/02 15:31:12 by jocorral         ###   ########.fr       */
+/*   Updated: 2026/10/02 16:47:16 by jocorral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 static char	*split_stash(char **stash)
 {
@@ -38,7 +38,7 @@ static char	*split_stash(char **stash)
 	return (line);
 }
 
-char	*get_next_line_bonus(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*stash[MAX_FD];
 
@@ -70,8 +70,8 @@ if (fd1 < 0 || fd2 < 0)
 perror("open");
 return (1);
 }
-l1 = get_next_line_bonus(fd1);
-l2 = get_next_line_bonus(fd2);
+l1 = get_next_line(fd1);
+l2 = get_next_line(fd2);
 while (l1 || l2)
 {
 if (l1)
@@ -80,8 +80,8 @@ if (l2)
 printf("[fd %d] %s", fd2, l2);
 free(l1);
 free(l2);
-l1 = get_next_line_bonus(fd1);
-l2 = get_next_line_bonus(fd2);
+l1 = get_next_line(fd1);
+l2 = get_next_line(fd2);
 }
 printf("\n--- fin (ambos fd devolvieron NULL) ---\n");
 close(fd1);
