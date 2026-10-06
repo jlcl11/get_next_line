@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jocorral <jocorral@student.42malaga.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 09:54:49 by jocorral          #+#    #+#             */
-/*   Updated: 2026/10/02 16:47:32 by jocorral         ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   get_next_line.c                                   :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: jocorral <jocorral@student.42malaga.com>  #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/09/30 09:54:49 by jocorral         #+#    #+#              */
+/*   Updated: 2026/10/06 15:59:37 by jocorral        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,21 +83,17 @@ return (0);
 */
 
 /* main 2: lee de la consola (stdin, fd = 0) */
-/* escribe lineas y pulsa Enter; Ctrl+D (en linea vacia) para terminar */
+
 /*int	main(void)
 {
 char	*line;
-int		n;
 
-printf("Escribe lineas (Ctrl+D para terminar):\n");
-n = 1;
 line = get_next_line(0);
 while (line)
 {
-printf("[%d] %s", n++, line);
+write(0, line, ft_strlen(line));
 free(line);
 line = get_next_line(0);
 }
-printf("\n--- fin (get_next_line devolvio NULL) ---\n");
 return (0);
 }*/
