@@ -28,8 +28,10 @@ alternar entre varios a la vez.
 
 ## Instrucciones
 
-Compilar junto a uno de los  `main`, indicando el tamaño del buffer. Se pude elegir
-si se quiere leer desde fichero o desde Stdin:
+Los `main` de prueba están comentados al final de los `.c`: en `get_next_line.c`, el
+main 1 lee de un fichero y el main 2 de la entrada estándar (stdin); en
+`get_next_line_bonus.c`, el main 3 alterna líneas de dos ficheros. Descomenta el que
+quieras usar y compila indicando el tamaño del buffer:
 
 ```sh
 # Parte obligatoria
