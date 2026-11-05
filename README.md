@@ -1,49 +1,49 @@
-*Este proyecto ha sido creado como parte del currículo de 42 por jocorral.*
+*This project has been created as part of the 42 curriculum by jocorral.*
 
 # get_next_line
 
-## Descripción
+## Description
 
-`get_next_line` es una función en C que devuelve, en cada llamada, la siguiente línea
-leída de un descriptor de archivo. El objetivo del proyecto es aprender a usar
-**variables estáticas** para conservar información entre llamadas.
+`get_next_line` is a C function that returns, on each call, the next line read
+from a file descriptor. The goal of the project is to learn how to use
+**static variables** to keep information between calls.
 
 ```c
 char	*get_next_line(int fd);
 ```
 
-Devuelve la línea leída (con su `\n`, si lo tiene) o `NULL` si no queda nada por leer
-o hay un error. La línea se reserva con `malloc` y debe liberarse con `free`.
+It returns the line read (with its `\n`, if it has one) or `NULL` if there is nothing left to read
+or an error occurs. The line is allocated with `malloc` and must be released with `free`.
 
-**Algoritmo.** `read` lee bloques de `BUFFER_SIZE` bytes que pueden contener media
-línea o varias, así que lo que sobra se guarda en una variable estática (`stash`):
+**Algorithm.** `read` reads blocks of `BUFFER_SIZE` bytes that may contain half a
+line or several, so whatever is left over is kept in a static variable (`stash`):
 
-1. Se lee y se concatena a la `stash` hasta que contiene un `\n` o se llega al final.
-2. Se extrae de la `stash` la línea (hasta el `\n` incluido) y se devuelve.
-3. El resto queda en la `stash` para la siguiente llamada.
+1. It reads and appends to the `stash` until it contains a `\n` or the end is reached.
+2. It extracts the line from the `stash` (up to and including the `\n`) and returns it.
+3. The rest stays in the `stash` for the next call.
 
-Así solo se lee lo necesario, funciona con cualquier `BUFFER_SIZE` y con descriptores
-como la entrada estándar. La parte bonus usa una `stash` por descriptor para poder
-alternar entre varios a la vez.
+This way it only reads what it needs, and it works with any `BUFFER_SIZE` and with descriptors
+such as standard input. The bonus part uses one `stash` per descriptor to be able to
+alternate between several at once.
 
-## Instrucciones
+## Instructions
 
-Los `main` de prueba están comentados al final de los `.c`: en `get_next_line.c`, el
-main 1 lee de un fichero y el main 2 de la entrada estándar (stdin); en
-`get_next_line_bonus.c`, el main 3 alterna líneas de dos ficheros. Descomenta el que
-quieras usar y compila indicando el tamaño del buffer:
+The test `main` functions are commented out at the end of the `.c` files: in `get_next_line.c`,
+main 1 reads from a file and main 2 from standard input (stdin); in
+`get_next_line_bonus.c`, main 3 alternates lines from two files. Uncomment the one
+you want to use and compile with the buffer size:
 
 ```sh
-# Parte obligatoria
+# Mandatory part
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c && ./a.out
 # Bonus
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c && ./a.out
 ```
 
-## Recursos
+## Resources
 
 - `man 2 read`, `man 3 malloc`, `man 3 free`
-- [Variables estáticas en C — GeeksforGeeks](https://www.geeksforgeeks.org/static-variables-in-c/)
+- [Static variables in C — GeeksforGeeks](https://www.geeksforgeeks.org/static-variables-in-c/)
 - [File descriptors](https://www.geeksforgeeks.org/c/input-output-system-calls-c-create-open-close-read-write/)
 
-**Uso de IA:** se ha usado como apoyo para redactar este README.
+**Use of AI:** it was used as support for writing this README.
